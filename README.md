@@ -37,9 +37,9 @@ El objetivo de esta app es el de poder gestionar con facilidad y comodidad la di
 - **devuelto** - Cambia en función de si se marca o no como completado y modifica el valor **disponible** de libro
 
 ## Usuario Administrador
-ruta --> /admin
-usuario: administrador
-contraseña: 1234
+- ruta --> /admin
+- usuario: administrador
+- contraseña: 1234
 
 
 

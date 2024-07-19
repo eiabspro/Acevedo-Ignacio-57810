@@ -1,0 +1,30 @@
+{% extends "entidades/index.html" %}
+    
+{% block titulo %}
+    <h1 class="mb-5">Editar Perfil</h1>
+    <br>
+{% endblock titulo %}
+    
+
+{% block contenido %}
+
+<form action="" method="post">
+    {% csrf_token %}
+    <table>
+        <table>
+            {{ form.non_field_errors }}
+            {{ form.first_name.label_tag }} {{ form.first_name }}
+            
+            {{ form.last_name.label_tag }} {{ form.last_name }}
+            {{ form.last_name.errors }}
+            
+            {{ form.email.label_tag }} {{ form.email }}
+            {{ form.email.errors }}
+        </table>
+    <div class="button-group" style="display: flex; align-items: center;">
+        <input type="submit" value="Guardar" class="btn btn-success btn-sm" style="margin-right: 5px;">
+        <a href="{% url 'cambiarClave' %}" class="btn btn-primary btn-sm">Cambiar Contraseña</a>
+    </div>
+</form>
+
+{% endblock contenido %}

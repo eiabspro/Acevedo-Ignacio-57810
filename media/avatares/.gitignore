@@ -1,0 +1,8 @@
+# Ignorar todos los archivos y directorios en esta carpeta
+*
+
+# No ignorar este archivo .gitignore
+!.gitignore
+
+# No ignorar el archivo default.png
+!default.png

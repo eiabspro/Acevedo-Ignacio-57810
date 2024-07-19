@@ -1,0 +1,63 @@
+{% extends "entidades/index.html" %}
+
+
+{% block titulo %}
+    <h1 class="mb-5">Prestamos</h1>
+    <br>
+    <a class="btn btn-primary" href="{% url 'prestamosCreate' %}"><i class="fa-solid fa-circle-plus"></i> Realizar prestamo</a>
+{% endblock titulo %}
+    
+
+{% block contenido %}
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Libro</th>
+            <th>Usuario</th>
+            <th>Fecha de Prestamo</th>
+            <th>Devuelto</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for c in prestamos %}
+        <tr>
+            <td>{{ c.libro }}</td>
+            <td>{{ c.usuario }}</td>
+            <td>{{ c.fecha_prestamo }}</td>
+            <td>
+                {% if not c.devuelto %}
+                    No
+                {% else %}
+                    Si
+                {% endif %}
+            </td>
+            <td>
+                <div class="d-flex justify-content-start">
+                    {% if not c.devuelto %}
+                    <form action="{% url 'completar_prestamo' c.id %}" method="post">
+                        {% csrf_token %}
+                        <button type="submit" class="btn btn-sm btn-success me-2" title="Marcar como completada" style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;">
+                            <i class="fa-solid fa-check"></i>
+                        </button>
+                    </form>
+                    <a
+                      href="{% url 'prestamosUpdate' c.id %}"
+                      class="btn btn-primary"
+                      style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;"
+                      ><i class="fa fa-edit fa-sm" title="Modificar"></i>
+                    </a>
+                    {% endif %}
+                    <a
+                      href="{% url 'prestamosDelete' c.id %}"
+                      class="btn btn-danger"
+                      style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;"
+                      ><i class="fa fa-trash fa-sm" title="Eliminar"></i>
+                    </a>
+                </div>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock contenido %}

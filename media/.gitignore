@@ -1,0 +1,8 @@
+# Ignorar todos los archivos y directorios en esta carpeta
+*
+
+# No ignorar el directorio 'avatares'
+!avatares
+
+# No ignorar este archivo .gitignore
+!.gitignore

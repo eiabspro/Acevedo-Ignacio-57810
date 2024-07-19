@@ -1,0 +1,48 @@
+{% extends "entidades/index.html" %}
+    
+{% block titulo %}
+    <h1 class="mb-5">Autores</h1>
+    <br>
+    <a class="btn btn-primary" href="{% url 'autoresCreate' %}"><i class="fa-solid fa-circle-plus"></i> Agregar autor</a>
+{% endblock titulo %}
+    
+
+{% block contenido %}
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>DNI</th>
+            <th>Nombre</th>
+            <th>Apellido</th>
+            <th>Nacionalidad</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for c in autores %}
+        <tr>
+            <td>{{ c.dni }}</td>
+            <td>{{ c.nombre }}</td>
+            <td>{{ c.apellido }}</td>
+            <td>{{ c.nacionalidad }}</td>
+            <td>
+                <a
+                  href="{% url 'autoresUpdate' c.id %}"
+                  class="btn btn-primary"
+                  style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;"
+                  ><i class="fa fa-edit fa-sm" title="Modificar"></i>
+                </a>
+                <a
+                  href="{% url 'autoresDelete' c.id %}"
+                  class="btn btn-danger"
+                  style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;"
+                  ><i class="fa fa-trash fa-sm" title="Eliminar"></i>
+                </a>                
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+{% endblock contenido %}

@@ -1,0 +1,57 @@
+{% extends "entidades/index.html" %}
+
+
+{% block titulo %}
+    <h1 class="mb-5">Libros</h1>
+        <br>
+    <a class="btn btn-primary" href="{% url 'librosCreate' %}"><i class="fa-solid fa-circle-plus"></i> Agregar libro</a>
+{% endblock titulo %}
+    
+
+{% block contenido %}
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>ISBN</th>
+            <th>Titulo</th>
+            <th>Autor</th>
+            <th>Fecha de publicación</th>
+            <th>Género</th>
+            <th>Disponible</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for c in libros %}
+        <tr>
+            <td>{{ c.isbn }}</td>
+            <td>{{ c.titulo }}</td>
+            <td>{{ c.autor }}</td>
+            <td>{{ c.fecha_publicacion }}</td>
+            <td>{{ c.genero }}</td>
+            <td>
+                {% if c.disponible %}
+                    Sí
+                {% else %}
+                    No
+                {% endif %}
+            </td>
+            <td>
+                <a
+                  href="{% url 'librosUpdate' c.id %}"
+                  class="btn btn-primary"
+                  style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;"
+                  ><i class="fa fa-edit fa-sm" title="Modificar"></i>
+                </a>
+                <a
+                  href="{% url 'librosDelete' c.id %}"
+                  class="btn btn-danger"
+                  style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;"
+                  ><i class="fa fa-trash fa-sm" title="Eliminar"></i>
+                </a>                
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock contenido %}

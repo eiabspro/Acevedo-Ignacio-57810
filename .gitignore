@@ -1,0 +1,8 @@
+# Ignora los directorios de cache de Python donde se almacenan los archivos bytecode:
+__pycache__/
+
+# Ignora todos los archivos bytecode compilados:
+*.pyc
+
+# Ignora el directorio media, utilizado para almacenar archivos subidos por los usuarios:
+media/*

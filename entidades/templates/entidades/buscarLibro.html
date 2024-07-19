@@ -1,0 +1,29 @@
+{% extends "entidades/index.html" %}
+
+{% block titulo %}
+<table>
+    <div class="position-absolute top-50 start-50 translate-middle bg-transparent p-4 rounded">
+        <h1 class="mb-5 text-light">¿Qué libro desea buscar?</h1>
+        <form action="{% url 'encontrarLibro' %}" method="get">
+            {% csrf_token %}
+            <div class="form-group">
+                <input class="form-control text-center text-dark bg-light" type="text" name="buscar" id="buscar">
+            </div>
+            <br>
+            <p>
+                <a class="btn btn-danger" href="{% url 'inicio' %}"><i class="fa-solid fa-left-long"></i></a>
+                <input class="btn btn-success" type="submit" value="Buscar">
+            </p>
+        </form>
+    </div>
+</table>
+{% endblock titulo %}
+
+{% block contenido %}
+
+{% endblock contenido %}
+
+
+{% block footer %}
+
+{% endblock footer %}

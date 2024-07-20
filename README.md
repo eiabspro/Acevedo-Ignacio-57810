@@ -43,5 +43,5 @@ El objetivo de esta app es el de poder gestionar con facilidad y comodidad la di
 
 # Video de navegación: 
 
-[Video]([URL](https://drive.google.com/file/d/1vz4rvlP6sJjYskgkKa3z2VMcF4wYnPH5/view?usp=drive_link))
+[Video](https://drive.google.com/file/d/1vz4rvlP6sJjYskgkKa3z2VMcF4wYnPH5/view?usp=drive_link)
 

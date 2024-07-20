@@ -147,7 +147,6 @@ def completar_prestamo(request, pk):
         if not prestamo.devuelto:  # Verifica si el préstamo no ha sido marcado como devuelto aún
             prestamo.devuelto = True
             prestamo.save()
-            print(prestamo.devuelto)
             prestamo.libro.disponible = True
             prestamo.libro.save()
 
